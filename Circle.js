@@ -47,7 +47,7 @@ export class ProgressCircle extends Component {
     borderWidth: 1,
     color: 'rgba(0, 122, 255, 1)',
     direction: 'clockwise',
-    formatText: progress => `${Math.round(progress * 100)}%`,
+    formatText: progress => <Text>{Math.round(progress * 100)}%</Text>,
     progress: 0,
     showsText: false,
     size: 40,
