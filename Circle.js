@@ -47,7 +47,7 @@ export class ProgressCircle extends Component {
     borderWidth: 1,
     color: 'rgba(0, 122, 255, 1)',
     direction: 'clockwise',
-    formatText: progress => <Text>{Math.round(progress * 100)}%</Text>,
+    formatText: progress => <Text>${Math.round(progress * 100)}%</Text>,
     progress: 0,
     showsText: false,
     size: 40,
@@ -174,19 +174,20 @@ export class ProgressCircle extends Component {
             false
           )}
         </Surface>
-        {!indeterminate && showsText ? (
-          <View
-            style={{
-              position: 'absolute',
-              left: textOffset,
-              top: textOffset,
-              width: textSize,
-              height: textSize,
-              borderRadius: textSize / 2,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
+
+        <View
+          style={{
+            position: 'absolute',
+            left: textOffset,
+            top: textOffset,
+            width: textSize,
+            height: textSize,
+            borderRadius: textSize / 2,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          {!indeterminate && showsText ? (
             <Text
               style={[
                 {
@@ -199,11 +200,11 @@ export class ProgressCircle extends Component {
             >
               {formatText(progressValue)}
             </Text>
-          </View>
-        ) : (
-          false
-        )}
-        {children}
+          ) : (
+            false
+          )}
+          {children}
+        </View>
       </View>
     );
   }
